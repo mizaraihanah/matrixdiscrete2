@@ -1,0 +1,91 @@
+/* styles.css */
+
+/* Style the matrix table */
+#matrix-container table {
+    border-collapse: collapse;
+    margin-top: 20px;
+    width: 100%;
+    font-size: 1rem; /* Increased font size for better readability */
+}
+
+#matrix-container th, #matrix-container td {
+    border: 1px solid #dee2e6;
+    padding: 15px; /* Increased padding for larger touch areas */
+    text-align: center;
+}
+
+/* Enhanced Input Styling */
+#matrix-container input[type="number"] {
+    width: 60px; /* Adequate width for stepper controls */
+    text-align: center;
+    border: 1px solid #ced4da; /* Added border for visibility */
+    background-color: #ffffff; /* White background for clarity */
+    font-size: 1.2rem; /* Larger font size for better visibility */
+    border-radius: 4px; /* Rounded corners for aesthetics */
+    -webkit-appearance: none; /* Removes default styling on iOS */
+    -moz-appearance: textfield; /* Removes default styling on Firefox */
+}
+
+/* Remove spinners in number inputs for better mobile UX */
+#matrix-container input[type="number"]::-webkit-inner-spin-button,
+#matrix-container input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#matrix-container input[type="number"]:focus {
+    outline: none;
+    background-color: #e9ecef;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+#results p {
+    margin: 0.5rem 0;
+    font-size: 1rem; /* Increased font size */
+}
+
+#results .badge {
+    font-size: 1rem;
+    padding: 0.6em 0.9em; /* Increased padding for better visibility */
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    /* Adjust digraph height for smaller screens */
+    #cy {
+        height: 300px;
+    }
+
+    /* Reduce matrix table font size slightly to fit smaller screens */
+    #matrix-container table {
+        font-size: 0.9rem;
+    }
+
+    /* Further adjust input fields for better fit */
+    #matrix-container input[type="number"] {
+        width: 50px;
+        font-size: 1rem;
+    }
+
+    /* Adjust badge font size and padding */
+    #results .badge {
+        font-size: 0.9rem;
+        padding: 0.5em 0.7em;
+    }
+
+    /* Reduce input group text size */
+    .input-group-text {
+        font-size: 0.9rem;
+    }
+
+    /* Make buttons full-width on small screens for easier tapping */
+    .btn {
+        width: 100%;
+    }
+
+    /* Increase spacing between buttons when stacked */
+    .btn.me-2 {
+        margin-right: 0 !important;
+    }
+}
