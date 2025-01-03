@@ -1,91 +1,207 @@
-/* styles.css */
+/* Importing Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-/* Style the matrix table */
+/* General Body Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f6f9;
+    color: #343a40;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Navbar Styling */
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    font-weight: 500;
+}
+
+.nav-link.active {
+    text-decoration: underline;
+}
+
+/* Header Styling */
+h1 {
+    color: #343a40;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* Input Group Styling */
+.input-group-lg {
+    width: 100%;
+}
+
+.input-group-text {
+    font-weight: 600;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.5rem 0 0 0.5rem;
+}
+
+input.form-control {
+    border: 1px solid #ced4da;
+    border-radius: 0;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    /* Removed max-width to allow full width */
+    flex: 1; /* Allows the input to take available space */
+}
+
+input.form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Generate Button Styling */
+#generate {
+    border-radius: 0 0.5rem 0.5rem 0;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    /* Ensure button maintains consistent height with input */
+    height: 100%;
+}
+
+
+
+#generate:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
 #matrix-container table {
-    border-collapse: collapse;
     margin-top: 20px;
     width: 100%;
-    font-size: 1rem; /* Increased font size for better readability */
+    border-collapse: collapse;
 }
 
-#matrix-container th, #matrix-container td {
-    border: 1px solid #dee2e6;
-    padding: 15px; /* Increased padding for larger touch areas */
+#matrix-container td {
+    padding: 10px;
     text-align: center;
+    vertical-align: middle;
+    border: 2px solid #dee2e6;
 }
 
-/* Enhanced Input Styling */
-#matrix-container input[type="number"] {
-    width: 60px; /* Adequate width for stepper controls */
+#matrix-container input {
+    width: 60px;
+    height: 38px;
+    padding: 5px;
     text-align: center;
-    border: 1px solid #ced4da; /* Added border for visibility */
-    background-color: #ffffff; /* White background for clarity */
-    font-size: 1.2rem; /* Larger font size for better visibility */
-    border-radius: 4px; /* Rounded corners for aesthetics */
-    -webkit-appearance: none; /* Removes default styling on iOS */
-    -moz-appearance: textfield; /* Removes default styling on Firefox */
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    box-sizing: border-box;
 }
 
-/* Remove spinners in number inputs for better mobile UX */
-#matrix-container input[type="number"]::-webkit-inner-spin-button,
-#matrix-container input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-#matrix-container input[type="number"]:focus {
-    outline: none;
-    background-color: #e9ecef;
-    border-color: #80bdff;
-    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
-}
-
-#results p {
-    margin: 0.5rem 0;
-    font-size: 1rem; /* Increased font size */
-}
-
-#results .badge {
+#matrix-container .btn {
+    width: 38px;
+    height: 38px;
+    padding: 0;
     font-size: 1rem;
-    padding: 0.6em 0.9em; /* Increased padding for better visibility */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.25rem;
 }
 
-/* Responsive adjustments */
+#matrix-container .btn-subtract {
+    margin-right: 5px;
+}
+
+#matrix-container .btn-add {
+    margin-left: 5px;
+}
+
+/* Button Styling */
+.btn {
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+}
+
+/* Results Section Styling */
+#results {
+    border: 1px solid #dee2e6;
+    border-radius: 0.75rem;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    min-height: 100px;
+}
+
+/* Digraph Container Styling */
+#cy {
+    background-color: #ffffff;
+    border: 2px solid #007bff;
+    border-radius: 0.75rem;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    max-width: 900px;
+    height: 500px;
+    margin: 0 auto;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #343a40;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.9rem;
+    border-top: 1px solid #2d2d2d;
+    position: fixed; /* Keeps the footer fixed at the bottom */
+    bottom: 0; /* Aligns the footer to the bottom of the viewport */
+    left: 0;
+    width: 100%; /* Ensures the footer spans the full width of the viewport */
+    z-index: 1000; /* Keeps the footer above other elements */
+}
+
+
+/* Responsive Adjustments */
 @media (max-width: 576px) {
-    /* Adjust digraph height for smaller screens */
     #cy {
         height: 300px;
     }
 
-    /* Reduce matrix table font size slightly to fit smaller screens */
-    #matrix-container table {
-        font-size: 0.9rem;
+    .input-group-lg {
+        flex-direction: column;
     }
 
-    /* Further adjust input fields for better fit */
-    #matrix-container input[type="number"] {
-        width: 50px;
-        font-size: 1rem;
-    }
-
-    /* Adjust badge font size and padding */
-    #results .badge {
-        font-size: 0.9rem;
-        padding: 0.5em 0.7em;
-    }
-
-    /* Reduce input group text size */
-    .input-group-text {
-        font-size: 0.9rem;
-    }
-
-    /* Make buttons full-width on small screens for easier tapping */
-    .btn {
+    .input-group-text,
+    #generate {
+        border-radius: 0.5rem;
         width: 100%;
+        margin-bottom: 10px;
     }
 
-    /* Increase spacing between buttons when stacked */
-    .btn.me-2 {
-        margin-right: 0 !important;
+    input.form-control {
+        max-width: 100%;
+    }
+
+    #generate {
+        margin-left: 0; /* Remove left margin on small screens */
     }
 }
