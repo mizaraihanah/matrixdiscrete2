@@ -7,24 +7,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container my-5">
-        <h1 class="text-center mb-4">Relation Matrix Checker</h1>
-        
-        <!-- Input Section -->
-        <div class="row mb-4">
-            <div class="col-12 col-md-8 offset-md-2">
-                <div class="input-group">
-                    <span class="input-group-text" id="matrixSize">Matrix Size (n x n)</span>
-                    <input type="number" id="size" class="form-control" min="1" max="10" value="3" aria-label="Matrix Size" aria-describedby="matrixSize">
-                    <button class="btn btn-primary" id="generate">Generate Matrix</button>
-                </div>
-                <small class="form-text text-muted mt-2">Enter a number between 1 and 10.</small>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Relation Matrix Checker</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Future Navigation Items Can Be Added Here -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <!-- Example Nav Items -->
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <!-- Add more nav items as needed -->
+                </ul>
             </div>
         </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container my-5 flex-grow-1">
+        <h1 class="text-center mb-5">Relation Matrix Checker</h1>
+        
+        <!-- Input Section -->
+        <div class="row mb-5">
+            <div class="col-12 col-md-8 offset-md-2">
+                <div class="input-group input-group-lg">
+                    <span class="input-group-text" id="matrixSize">Matrix Size (n x n)</span>
+                    <input type="number" id="size" class="form-control" min="1" max="10" value="" 
+                        placeholder="Enter a number between 1 and 10." 
+                        aria-label="Matrix Size" aria-describedby="matrixSize">
+                    <button class="btn btn-primary" id="generate">Generate Matrix</button>
+                </div>
 
         <!-- Matrix Container -->
         <div class="row mb-4">
@@ -33,18 +56,18 @@
             </div>
         </div>
 
-        <!-- Check and Reset Properties Buttons -->
-        <div class="row mb-4">
+        <!-- Action Buttons -->
+        <div class="row mb-5">
             <div class="col-12 d-flex justify-content-center flex-wrap">
-                <button class="btn btn-success me-2 mb-2" id="check">Check Properties</button>
-                <button class="btn btn-warning mb-2" id="reset">Reset</button>
+                <button class="btn btn-success me-3 mb-2" id="check">Check Properties</button>
+                <button class="btn btn-secondary mb-2" id="reset">Reset</button>
             </div>
         </div>
 
         <!-- Results Section -->
-        <div class="row mb-4">
+        <div class="row mb-5">
             <div class="col-12 d-flex justify-content-center">
-                <div id="results" class="alert alert-info w-100" style="max-width: 600px;" role="alert">
+                <div id="results" class="alert alert-info w-100 p-4 bg-white rounded shadow-sm" role="alert">
                     <!-- Results will be displayed here -->
                 </div>
             </div>
@@ -53,10 +76,17 @@
         <!-- Digraph Container -->
         <div class="row">
             <div class="col-12 d-flex justify-content-center">
-                <div id="cy" class="w-100" style="max-width: 800px; height: 500px; border: 1px solid #dee2e6;"></div>
+                <div id="cy" class="w-100 bg-white rounded shadow-sm" style="max-width: 900px; height: 500px;"></div>
             </div>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            &copy; 2025 Relation Matrix Checker. All rights reserved.
+        </div>
+    </footer>
 
     <!-- Bootstrap JS Bundle (Includes Popper) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
